@@ -26,7 +26,8 @@
             android:layout_toEndOf="@id/profile_pic"
             android:layout_alignTop="@id/profile_pic"
             android:layout_marginStart="16dp"
-            android:hint="Nombre"/>
+            android:hint="@string/hintEditName"
+            android:inputType="text"/>
 
         <EditText
             android:id="@+id/cargo_edit"
@@ -35,7 +36,8 @@
             android:layout_toEndOf="@id/profile_pic"
             android:layout_alignBottom="@+id/profile_pic"
             android:layout_marginStart="16dp"
-            android:hint="Cargo"/>
+            android:hint="@string/hintEditCharge"
+            android:inputType="text"/>
 
         <View
             android:id="@+id/black_bar"
@@ -46,11 +48,49 @@
             android:layout_marginTop="16dp"/>
 
         <TextView
+            android:id="@+id/text_description"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Descripción"
+            android:text="@string/textVDescription"
             android:textAlignment="center"
+            android:padding="16dp"
             android:layout_below="@+id/black_bar"/>
+
+        <EditText
+            android:id="@+id/description_edit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/text_description"
+            android:layout_marginStart="16dp"
+            android:paddingVertical="16dp"
+            android:layout_marginBottom="24dp"
+            android:hint="@string/hintEditDescription"
+            android:inputType="text"/>
+
+        <TextView
+            android:id="@+id/text_rating"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/textVRating"
+            android:textAlignment="center"
+            android:padding="16dp"
+            android:layout_below="@+id/description_edit"/>
+
+        <RatingBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/text_rating"
+            android:numStars="5"
+            />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/buttonTextSave"
+            android:textAllCaps="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="24dp"/>
 
     </RelativeLayout>
 </layout>

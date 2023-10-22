@@ -1,3 +1,9 @@
 <resources>
-    <string name="app_name">Registros</string>
+    <string name="app_name">Records</string>
+    <string name="hintEditName">Name</string>
+    <string name="hintEditCharge">Charge</string>
+    <string name="textVDescription">Description</string>
+    <string name="hintEditDescription">Put a description</string>
+    <string name="textVRating">Rating</string>
+    <string name="buttonTextSave">Save</string>
 </resources>

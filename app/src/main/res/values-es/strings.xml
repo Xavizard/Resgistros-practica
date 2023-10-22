@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Registros</string>
+    <string name="hintEditName">Nombre</string>
+    <string name="hintEditCharge">Cargo</string>
+    <string name="textVDescription">Descripción</string>
+    <string name="hintEditDescription">Ingrese una descripción</string>
+    <string name="textVRating">Puntaje</string>
+    <string name="buttonTextSave">Guardar</string>
+</resources>
