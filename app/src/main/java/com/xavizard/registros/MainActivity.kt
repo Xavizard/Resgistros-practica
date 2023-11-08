@@ -22,10 +22,10 @@ class MainActivity : AppCompatActivity() {
 
     private fun openDetailActivity(personName: String, personCharge: String, chargeDescription: String, personRating: Float){
         val intent = Intent(this,DetailActivity::class.java)
-        intent.putExtra("person_name", personName)
-        intent.putExtra("person_charge", personCharge)
-        intent.putExtra("charge_description", chargeDescription)
-        intent.putExtra("person_rating", personRating)
+        intent.putExtra(DetailActivity.PERSON_NAME, personName)
+        intent.putExtra(DetailActivity.PERSON_CHARGE, personCharge)
+        intent.putExtra(DetailActivity.CHARGE_DESCRIPTION, chargeDescription)
+        intent.putExtra(DetailActivity.PERSON_RATING, personRating)
         startActivity(intent)
     }
 }
