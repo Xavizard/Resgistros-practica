@@ -16,16 +16,15 @@ class MainActivity : AppCompatActivity() {
             val personCharge = binding.cargoEdit.text.toString()
             val chargeDescription = binding.descriptionEdit.text.toString()
             val personRating = binding.rateBar.rating
-            openDetailActivity(personName, personCharge, chargeDescription, personRating) }
+
+            val persona = Persona(personName, personCharge, chargeDescription, personRating)
+            openDetailActivity(persona) }
 
     }
 
-    private fun openDetailActivity(personName: String, personCharge: String, chargeDescription: String, personRating: Float){
+    private fun openDetailActivity(Persona: Persona){
         val intent = Intent(this,DetailActivity::class.java)
-        intent.putExtra(DetailActivity.PERSON_NAME, personName)
-        intent.putExtra(DetailActivity.PERSON_CHARGE, personCharge)
-        intent.putExtra(DetailActivity.CHARGE_DESCRIPTION, chargeDescription)
-        intent.putExtra(DetailActivity.PERSON_RATING, personRating)
+        intent.putExtra(DetailActivity.PERSON_KEY, Persona)
         startActivity(intent)
     }
 }
