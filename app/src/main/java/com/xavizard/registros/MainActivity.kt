@@ -1,17 +1,23 @@
 package com.xavizard.registros
 
-import android.app.Activity
 import android.content.Intent
 import android.graphics.Bitmap
 import android.os.Bundle
-import android.provider.MediaStore
 import android.widget.ImageView
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.graphics.drawable.toBitmap
 import com.xavizard.registros.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
     private lateinit var profilePic: ImageView
+    private var profileBitmap: Bitmap? = null
+
+    val getContent = registerForActivityResult(ActivityResultContracts.TakePicturePreview()){
+        bitmap ->
+        profileBitmap = bitmap
+        profilePic.setImageBitmap(profileBitmap!!)
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val binding = ActivityMainBinding.inflate(layoutInflater)
@@ -35,8 +41,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun openCamera() {
-        val cameraIntent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
-        startActivityForResult(cameraIntent,1000)
+        getContent.launch(null)
     }
 
     private fun openDetailActivity(persona: Persona){
@@ -44,16 +49,6 @@ class MainActivity : AppCompatActivity() {
         intent.putExtra(DetailActivity.PERSON_KEY, persona)
         intent.putExtra(DetailActivity.BITMAP_KEY, profilePic.drawable.toBitmap())
         startActivity(intent)
-    }
-
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-
-        if(resultCode == Activity.RESULT_OK && requestCode == 1000){
-            val extras = data?.extras
-            val personBitmap = extras?.getParcelable<Bitmap>("data")
-            profilePic.setImageBitmap(personBitmap)
-        }
     }
 
 }
