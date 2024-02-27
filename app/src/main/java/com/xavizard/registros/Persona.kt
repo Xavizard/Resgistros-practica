@@ -1,7 +1,7 @@
 package com.xavizard.registros
 
 import android.os.Parcelable
-import kotlinx.android.parcel.Parcelize
+import kotlinx.parcelize.Parcelize
 
 @Parcelize
 class Persona(val name: String, val charge: String, val description: String, val rate: Float) :

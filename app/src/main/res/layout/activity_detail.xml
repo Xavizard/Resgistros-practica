@@ -4,7 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
+        <variable
+            name="persona"
+            type="com.xavizard.registros.Persona" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -19,6 +21,7 @@
             android:layout_marginStart="16dp"
             android:layout_marginEnd="16dp"
             tools:text="Triple puto el que lo lea"
+            android:text="@{persona.description}"
             android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
@@ -47,6 +50,7 @@
             android:layout_marginTop="8dp"
             android:layout_marginEnd="16dp"
             tools:text="Doble puto el que lo lea"
+            android:text="@{persona.charge}"
             android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
@@ -54,9 +58,10 @@
             app:layout_constraintTop_toBottomOf="@+id/textCharg" />
 
         <ImageView
-            android:id="@+id/imageView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:id="@+id/personImage"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:scaleType="centerCrop"
             android:adjustViewBounds="true"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -69,10 +74,11 @@
             android:layout_height="wrap_content"
             android:padding="16dp"
             tools:text="Puto el que lo lea"
+            android:text="@{persona.name}"
             android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView" />
+            app:layout_constraintTop_toBottomOf="@+id/personImage" />
 
         <TextView
             android:id="@+id/textCharg"
@@ -104,6 +110,7 @@
             android:layout_height="wrap_content"
             android:progressTint="#FFEB3B"
             android:isIndicator="true"
+            android:rating="@{persona.rate}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.497"
             app:layout_constraintStart_toStartOf="parent"

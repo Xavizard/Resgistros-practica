@@ -1,5 +1,6 @@
 package com.xavizard.registros
 
+import android.graphics.Bitmap
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.xavizard.registros.databinding.ActivityDetailBinding
@@ -7,6 +8,7 @@ import com.xavizard.registros.databinding.ActivityDetailBinding
 class DetailActivity : AppCompatActivity() {
     companion object{
         const val PERSON_KEY = "persona"
+        const val BITMAP_KEY = "bitmap"
     }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -15,10 +17,9 @@ class DetailActivity : AppCompatActivity() {
 
         val bundle = intent.extras!!
         val persona = bundle.getParcelable<Persona>(PERSON_KEY)!!
+        val bitmap = bundle.getParcelable<Bitmap>(BITMAP_KEY)!!
 
-        binding.personName.text = persona.name
-        binding.personCharge.text = persona.charge
-        binding.personDescription.text = persona.description
-        binding.ratingBar.rating = persona.rate
+        binding.personImage.setImageBitmap(bitmap)
+        binding.persona = persona
     }
 }
